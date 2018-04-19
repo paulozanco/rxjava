@@ -1,14 +1,16 @@
 package co.paulozan.rxjava;
 
 import io.reactivex.Observable;
+import io.reactivex.schedulers.Schedulers;
 
 import java.util.concurrent.ThreadLocalRandom;
 
-public class Launcher_BackPressure {
+public class Launcher_BackPressure_Observable {
 
     public static void main(String[] args) {
         Observable.range(1, 999_999_999)
                   .map(MyItem::new)
+                  .observeOn(Schedulers.io())
                   .subscribe(myItem -> {
                       sleep(50);
                       System.out.println("Received MyItem " +
