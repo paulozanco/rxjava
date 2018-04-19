@@ -1,17 +1,18 @@
 package co.paulozan.rxjava;
 
 import io.reactivex.Observable;
+
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 
 public class Launcher_Operator_Map {
 
-  public static void main(String[] args) {
+    public static void main(String[] args) {
 
-    DateTimeFormatter dtf = DateTimeFormatter.ofPattern("M/d/yyyy");
+        DateTimeFormatter dtf = DateTimeFormatter.ofPattern("M/d/yyyy");
 
-    Observable.just("1/3/2016", "5/9/2016", "10/12/2016")
-        .map(s -> LocalDate.parse(s, dtf))
-        .subscribe(i -> System.out.println("RECEIVED: " + i));
-  }
+        Observable.just("1/3/2016", "5/9/2016", "10/12/2016")
+                  .map(s -> LocalDate.parse(s, dtf))
+                  .subscribe(i -> System.out.println("RECEIVED: " + i));
+    }
 }

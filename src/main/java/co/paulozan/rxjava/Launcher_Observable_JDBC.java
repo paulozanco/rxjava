@@ -7,25 +7,25 @@ import org.davidmoten.rx.jdbc.Database;
 
 public class Launcher_Observable_JDBC {
 
-  public static void main(String[] args) {
+    public static void main(String[] args) {
 
-    Database db = Database.test();
+        Database db = Database.test();
 
-    Flowable<String> people =
-        db.select("select name from person")
-            .getAs(String.class)
-            .subscribeOn(Schedulers.io());
+        Flowable<String> people =
+                db.select("select name from person")
+                  .getAs(String.class)
+                  .subscribeOn(Schedulers.io());
 
-    people.subscribe(System.out::println);
-    sleep(20000);
-  }
-
-  public static void sleep(long millis) {
-    try {
-      Thread.sleep(millis);
-    } catch (InterruptedException e) {
-      e.printStackTrace();
+        people.subscribe(System.out::println);
+        sleep(20000);
     }
-  }
+
+    public static void sleep(long millis) {
+        try {
+            Thread.sleep(millis);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+    }
 
 }

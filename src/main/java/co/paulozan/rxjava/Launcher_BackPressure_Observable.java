@@ -3,8 +3,6 @@ package co.paulozan.rxjava;
 import io.reactivex.Observable;
 import io.reactivex.schedulers.Schedulers;
 
-import java.util.concurrent.ThreadLocalRandom;
-
 public class Launcher_BackPressure_Observable {
 
     public static void main(String[] args) {
@@ -28,6 +26,7 @@ public class Launcher_BackPressure_Observable {
 
     static final class MyItem {
         final int id;
+
         MyItem(int id) {
             this.id = id;
             System.out.println("Constructing MyItem " + id);

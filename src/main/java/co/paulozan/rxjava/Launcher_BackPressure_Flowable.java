@@ -1,7 +1,6 @@
 package co.paulozan.rxjava;
 
 import io.reactivex.Flowable;
-import io.reactivex.Observable;
 import io.reactivex.schedulers.Schedulers;
 
 public class Launcher_BackPressure_Flowable {
@@ -11,10 +10,10 @@ public class Launcher_BackPressure_Flowable {
                 .map(MyItem::new)
                 .observeOn(Schedulers.io())
                 .subscribe(myItem -> {
-                      sleep(50);
-                      System.out.println("Received MyItem " +
-                                                 myItem.id);
-                  });
+                    sleep(50);
+                    System.out.println("Received MyItem " +
+                                               myItem.id);
+                });
         sleep(Long.MAX_VALUE);
     }
 
@@ -28,6 +27,7 @@ public class Launcher_BackPressure_Flowable {
 
     static final class MyItem {
         final int id;
+
         MyItem(int id) {
             this.id = id;
             System.out.println("Constructing MyItem " + id);
